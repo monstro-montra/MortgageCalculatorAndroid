@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">MortgageCalculator</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="mortgage_label">Mortage Calculator</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="enter_your_total_amount">Enter your total amount...</string>
+    <string name="enter_your_mortgage_duration_years">Enter your mortgage duration (years)...</string>
+    <string name="enter_your_interest_rate">Enter your interest rate...</string>
+
+    <string name="calculate">Calculate</string>
+    <string name="mortgage">Mortage:</string>
+    <string name="progress">Progress</string>
+
+
+</resources>
