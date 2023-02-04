@@ -9,12 +9,6 @@ public class Mortgage {
 
     }
 
-    public Mortgage(float totalAmount, float interestRate, int mortgageDuration) {
-        setTotalAmount(totalAmount);
-        setInterestRate(interestRate);
-        setMortgageDuration(mortgageDuration);
-    }
-
     //getters and setters
     //total amount
     public float getTotalAmount() {
@@ -60,8 +54,7 @@ public class Mortgage {
         float i = getInterestRate() / 12 / 100; //convert the annual interest rate to a monthly interest rate. divide by 100 to convert to percentage
         int n = getMortgageDuration() * 12; //convert years to months
 
-        float M = (float) (P * (i * Math.pow(1 + i, n)) / (Math.pow(1 + i, n) - 1));
-        return M;
+        return (float) (P * (i * Math.pow(1 + i, n)) / (Math.pow(1 + i, n) - 1));
 
     }
 }
