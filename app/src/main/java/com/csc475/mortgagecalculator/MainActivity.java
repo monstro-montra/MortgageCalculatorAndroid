@@ -13,6 +13,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText mInterestRateEditText;
     private SeekBar mLoanDurationSeekBar;
     private TextView mYearsTextView;
+    private TextView mMortageCalculateTextView;
+    private Mortgage mortgage = new Mortgage();
 
 
     @Override
@@ -24,12 +26,29 @@ public class MainActivity extends AppCompatActivity {
         mInterestRateEditText = findViewById(R.id.interest_rate_edit_text);
         mLoanDurationSeekBar = findViewById(R.id.loan_duration_seek_bar);
         mYearsTextView = findViewById(R.id.years_text_view);
+        mMortageCalculateTextView = findViewById(R.id.mortgage_calculate);
 
-        calculateClick();
+        mLoanDurationSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
+                mYearsTextView.setVisibility(View.VISIBLE);
+                mYearsTextView.setText(progress + " / 30");
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                mortgage.setMortgageDuration(mLoanDurationSeekBar.getProgress());
+            }
+        });
     }
 
-    public void calculateClick(){
-        Mortgage mortgage = new Mortgage();
+    public void calculateClick(View view){
+
         //total amount section
         try{
             //convert string from the edit text to mortgage total amount (float)
@@ -48,22 +67,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //mortgage duration section
-        mLoanDurationSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
-                mYearsTextView.setVisibility(View.VISIBLE);
-                mYearsTextView.setText(progress + " / 30");
-            }
 
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
+        mMortageCalculateTextView.setVisibility(View.VISIBLE);
+        mMortageCalculateTextView.setText(String.valueOf(mortgage.calculate()));
 
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-        });
     }
 }

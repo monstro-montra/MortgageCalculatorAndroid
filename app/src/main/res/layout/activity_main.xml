@@ -8,7 +8,7 @@
     android:paddingTop="50dp"
     android:paddingRight="30dp"
     android:paddingBottom="16dp"
-    tools:context=".MortgageCalculatorFragment">
+    tools:context="com.csc475.mortgagecalculator.MainActivity">
 
     <EditText
         android:id="@+id/total_amount_edit_text"
@@ -18,7 +18,7 @@
         android:ems="5"
         android:hint="@string/enter_your_total_amount"
         android:importantForAutofill="no"
-        android:inputType="number"
+        android:inputType="numberSigned|number|numberDecimal"
         android:minHeight="48dp"
         android:textAlignment="center"
         tools:ignore="LabelFor,VisualLintTextFieldSize" />
@@ -31,7 +31,7 @@
         android:ems="5"
         android:hint="@string/enter_your_interest_rate"
         android:importantForAutofill="no"
-        android:inputType="number"
+        android:inputType="number|numberDecimal"
         android:minHeight="48dp"
         android:textAlignment="center"
         tools:ignore="LabelFor,VisualLintTextFieldSize" />
@@ -75,11 +75,13 @@
         tools:ignore="VisualLintButtonSize" />
 
     <TextView
+        android:id="@+id/mortgage_calculate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:text="@string/mortgage"
-        android:textAlignment="center" />
+        android:visibility="invisible"
+        android:textAlignment="center"
+        android:textSize="24sp"/>
 
 
 </LinearLayout>
